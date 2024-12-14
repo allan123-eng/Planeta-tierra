@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Nicaragua</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px; /* Ajusta según tu diseño */
+      margin: 0 auto;
+    }
+
+    .map-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    .city-button {
+      position: absolute;
+      background-color: #4CAF50; /* Color del botón */
+      border: none;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      transform: translate(-50%, -50%); /* Centrar el botón */
+    }
+
+    .city-button:hover {
+      background-color: #45a049; /* Cambiar color al pasar el cursor */
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bienvenido al Mapa de Nicaragua</h1>
+    <p>Explora los departamentos, regiones y la cultura del país.</p>
+  </div>
+
+  <div class="main-container">
+    <!-- Menú lateral -->
+    <aside class="sidebar">
+      <h3>Menú</h3>
+      <ul>
+        <li><a href="Inicio.html">Inicio</a></li> 
+        <li>
+          <a href="#" class="toggle-submenu">Departamentos</a>
+          <ul class="submenu">
+            <li><a href="ZPacifico.html">Zona del Pacífico</a></li>
+            <li><a href="ZCentral.html">Zona Central</a></li>
+            <li><a href="ZCaribe.html">Zona del Caribe</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="toggle-submenu">Regiones</a>
+          <ul class="submenu">
+            <li><a href="RPacifico.html">Regiones del Pacífico</a></li>
+            <li><a href="RCentral.html">Regiones Central</a></li>
+            <li><a href="RCaribe.html">Regiones del Caribe</a></li>
+          </ul>
+        </li>
+        <li><a href="Cultura.html">Cultura</a></li>
+        <li><a href="Prueba1.html">Prueba</a></li>
+        <li><a href="Opciones.html">Opciones</a></li>
+        <li id="developer-option" style="display: none;"><a href="Administrador.html">Administrador</a></li>
+        <li><a href="prueba.html" id="logout">Cerrar Sesión</a></li>
+      </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="content">
+      <div class="map-container">
+          <img src="ImagenesGenerales/Nica.png" alt="Mapa de Nicaragua" class="Nicaragua">
+
+          <!-- Botones para las ciudades -->
+          <button class="city-button" style="top: 54%; left: 38%;" onclick="window.location.href='Leon.html';"><!--Leon--></button>
+          <button class="city-button" style="top: 60%; left: 41.5%;" onclick="window.location.href='Managua.html';"><!--Managua--></button>
+          <button class="city-button" style="top: 45.5%; left: 47%;" onclick="window.location.href='Matagalpa.html';"><!--Matagalpa--></button>
+          <button class="city-button" style="top: 57%; left: 60%;" onclick="window.location.href='AtlanticoSur.html';"><!--Atlántico Sur--></button>
+          <button class="city-button" style="top: 41%; left: 39%;" onclick="window.location.href='Esteli.html';"><!--Estelí--></button>
+          <button class="city-button" style="top: 27%; left: 49%;" onclick="window.location.href='Jinotega.html';"><!--Jinotega--></button>
+          <button class="city-button" style="top: 30%; left: 60%;" onclick="window.location.href='AtlanticoNorte.html';"><!--Atlántico Norte--></button>
+          <button class="city-button" style="top: 59%; left: 50%;" onclick="window.location.href='Boaco.html';"><!--Boaco--></button>
+          <button class="city-button" style="top: 29%; left: 42%;" onclick="window.location.href='NuevaSegovia.html';"><!--Nueva Segovia--></button>
+          <button class="city-button" style="top: 65.5%; left: 50%;" onclick="window.location.href='Chontales.html';"><!--Chontales--></button>
+          <button class="city-button" style="top: 83%; left: 55%;" onclick="window.location.href='RioSanJuan.html';"><!--Río San Juan--></button>
+          <button class="city-button" style="top: 68.7%; left: 42%;" onclick="window.location.href='Masaya.html';"><!--Masaya--></button>
+          <button class="city-button" style="top: 79%; left: 47%;" onclick="window.location.href='Rivas.html';"><!--Rivas--></button>
+          <button class="city-button" style="top: 70%; left: 44.7%;" onclick="window.location.href='Granada.html';"><!--Granada--></button>
+          <button class="city-button" style="top: 48.5%; left: 34.5%;" onclick="window.location.href='Chinandega.html';"><!--Chinandega--></button>
+          <button class="city-button" style="top: 37%; left: 36%;" onclick="window.location.href='Madriz.html';"><!--Madriz--></button>
+          <button class="city-button" style="top: 76%; left: 38.1%;" onclick="window.location.href='Carazo.html';"><!--Carazo--></button>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Obtener el rol del usuario desde localStorage
+    const userRole = localStorage.getItem('userRole');
+
+    // Verificar el rol y aplicar restricciones al menú
+    if (userRole === 'estudiante') {
+      document.querySelectorAll('.submenu').forEach(submenu => {
+        submenu.classList.add('active'); // Mostrar los submenús
+      });
+      document.getElementById('developer-option').style.display = 'none';
+    } else if (userRole === 'profesor') {
+      document.querySelectorAll('.submenu').forEach(submenu => {
+        submenu.classList.add('active'); // Mostrar los submenús
+      });
+      document.getElementById('developer-option').style.display = 'none';
+    } else if (userRole === 'desarrollador') {
+      document.getElementById('developer-option').style.display = 'block';
+    }
+
+    // Funcionalidad para mostrar y ocultar los submenús
+    document.querySelectorAll('.toggle-submenu').forEach(item => {
+      item.addEventListener('click', () => {
+        const submenu = item.nextElementSibling;
+        submenu.classList.toggle('active');
+      });
+    });
+
+    // Redirigir a la pantalla de login cuando se hace clic en "Cerrar Sesión"
+    document.getElementById('logout').addEventListener('click', (event) => {
+      event.preventDefault();
+      localStorage.removeItem('userRole');
+      window.location.href = 'prueba.html';
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

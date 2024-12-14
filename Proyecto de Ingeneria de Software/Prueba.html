@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Interruptor para Modo Oscuro/Claro -->
+  <div class="theme-toggle">
+    <label for="themeSwitch">🌞/🌙</label>
+    <input type="checkbox" id="themeSwitch">
+  </div>
+
+  <div class="container">
+    <div class="welcome-section">
+      <h2>Gracias Por Visitar</h2>
+      <h1>Sistema web Geográfico</h1>
+      <p>Aplicación web interactiva diseñada para explorar y aprender sobre la geografía de Nicaragua. 
+        Los usuarios pueden navegar por un mapa dividido en departamentos y zonas de interés, acceder a información 
+        detallada sobre cada región, resolver cuestionarios y puzzles geográficos, y registrar su progreso. 
+        La plataforma incluye funcionalidades personalizadas para estudiantes, maestros y administradores, ofreciendo 
+        herramientas educativas innovadoras y una experiencia dinámica para fomentar el conocimiento geográfico.</p>
+    </div>
+    <div class="login-section">
+      <h2>Login</h2>
+      <p>Ingresa tus credenciales para continuar.</p>
+      <form id="loginForm">
+        <!-- Campos vacíos -->
+        <input type="email" id="email" placeholder="Ingresa tu correo" required>
+        <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+
+        <!-- Menú desplegable -->
+        <select id="role" required>
+          <option value="" disabled selected>Selecciona tu rol</option>
+          <option value="estudiante">Estudiante</option>
+          <option value="profesor">Profesor</option>
+          <option value="desarrollador">Administrador</option>
+        </select>
+
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <button type="submit">LOGIN</button>
+      </form>
+      <p id="error-message" style="color: red; font-size: 14px; margin-top: 10px; display: none;"></p>
+    </div>
+  </div>
+
+  <script>
+    // Modo Oscuro/Claro
+    const themeSwitch = document.getElementById('themeSwitch');
+    themeSwitch.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Validación del formulario
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const roleSelect = document.getElementById('role');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Evita el envío del formulario por defecto
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+      const role = roleSelect.value;
+
+      // Verificar credenciales
+      if (email === 'allanwilfredodavila@gmail.com' && password === 'allan123') {
+        if (role) {
+          // Guardar el rol en localStorage
+          localStorage.setItem('userRole', role);
+
+          // Redirigir a la página principal
+          window.location.href = 'Nic.html';
+        } else {
+          // Mostrar mensaje de error si no seleccionó un rol
+          errorMessage.textContent = 'Por favor, selecciona un rol.';
+          errorMessage.style.display = 'block';
+        }
+      } else {
+        // Mostrar mensaje de error si las credenciales no son válidas
+        errorMessage.textContent = 'Correo o contraseña incorrectos.';
+        errorMessage.style.display = 'block';
+      }
+    });
+
+    // Limpiar los campos del formulario al cargar la página
+    window.addEventListener('load', () => {
+      emailInput.value = '';
+      passwordInput.value = '';
+      roleSelect.selectedIndex = 0;
+      errorMessage.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

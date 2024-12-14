@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultura de Nicaragua</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cultura de Nicaragua</h1>
+    <nav>
+      <ul>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#festividades">Festividades</a></li>
+        <li><a href="#gastronomia">Gastronomía</a></li>
+        <li><a href="#arte">Arte</a></li>
+        <li><a href="#danzas">Danzas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="historia">
+      <h2>Historia de Nicaragua</h2>
+      <p>Contenido sobre la historia de Nicaragua.</p>
+    </section>
+
+    <section id="festividades">
+      <h2>Festividades de Nicaragua</h2>
+      <p>Contenido sobre festividades importantes.</p>
+    </section>
+
+    <section id="gastronomia">
+      <h2>Gastronomía de Nicaragua</h2>
+      <p>Contenido sobre la gastronomía nicaragüense.</p>
+    </section>
+
+    <section id="arte">
+      <h2>Arte de Nicaragua</h2>
+      <p>Contenido sobre el arte tradicional y moderno de Nicaragua.</p>
+    </section>
+
+    <section id="danzas">
+      <h2>Danzas de Nicaragua</h2>
+      <p>Contenido sobre las danzas tradicionales.</p>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto">
+      <h2>Formulario de Contacto</h2>
+      <form id="contactForm">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="email">Correo Electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br><br>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- Reproductor de Música -->
+    <section id="musica">
+      <h2>Reproductor de Música Típica</h2>
+      <audio controls>
+        <source src="musica_nicaraguense.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+      </audio>
+    </section>
+
+    <!-- Mapa Interactivo -->
+    <section id="mapa">
+      <h2>Explora las Regiones de Nicaragua</h2>
+      <div id="map" style="width: 100%; height: 400px; background-color: #ccc;">
+        <!-- Aquí va el mapa interactivo -->
+      </div>
+    </section>
+
+    <!-- Modo Oscuro/Claro -->
+    <button onclick="toggleTheme()">Modo Oscuro/Claro</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Cultura de Nicaragua. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
